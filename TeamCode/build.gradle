@@ -31,6 +31,8 @@ repositories {
 
 dependencies {
     implementation project(':FtcRobotController')
+    implementation 'com.acmerobotics:meepmeep:1.4'
+    implementation 'com.acmerobotics:meepmeep:1.4:all'
 
     implementation "com.acmerobotics.roadrunner:ftc:0.1.25"
     implementation "com.acmerobotics.roadrunner:core:1.0.1"
