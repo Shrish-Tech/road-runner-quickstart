@@ -15,7 +15,7 @@ import org.firstinspires.ftc.teamcode.MecanumDrive;
 public class BottomAuto extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException{
-        MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(10,101,10));
+        MecanumDrive drive = new MecanumDrive(hardwareMap, new Pose2d(-24,-60,Math.toRadians(90)));
         Pose2d startPose = new Pose2d(-24, -60, Math.toRadians(90));
 
 
@@ -23,14 +23,19 @@ public class BottomAuto extends LinearOpMode {
 
         // Build the Action (like a trajectory sequence)
         Action path = drive.actionBuilder(startPose)
-                .lineToX(30)
-                .turn(Math.toRadians(90))
-                .lineToY(30)
-                .turn(Math.toRadians(90))
-                .lineToX(0)
-                .turn(Math.toRadians(90))
-                .lineToY(0)
-                .turn(Math.toRadians(90))
+                .splineToLinearHeading(new Pose2d(-24,24,Math.toRadians(-45)),135)
+                //.strafeTo(new Vector2d(-24,24))
+                //.turn(Math.toRadians(-135))
+                //shoot
+                .strafeTo(new Vector2d(-24,-36))
+                .turn(Math.toRadians(-135))
+                .strafeTo(new Vector2d(-60,-36))
+                //intake
+                .strafeTo(new Vector2d(-24, -36))
+                .splineToLinearHeading(new Pose2d(-24,24,Math.toRadians(-45)),135)
+                //.strafeTo(new Vector2d(-24,24))
+                //.turn(Math.toRadians(-45))
+                //shoot
                 .build();
 
 
